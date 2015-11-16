@@ -32,8 +32,14 @@ func Sameish(first interface{}, second interface{}) bool {
 		case float64:
 			return first.(int) == int(second.(float64))
 		case string:
+			//Maybe the thing in string is an int
 			i, _ := strconv.Atoi(second.(string))
-			return first.(int) == i
+			if first.(int) == i {
+				return true
+			}
+			//Maybe the thing in string is a float
+			f, _ := strconv.ParseFloat(second.(string), 64)
+			return first.(int) == int(f)
 		default:
 			return false
 		}

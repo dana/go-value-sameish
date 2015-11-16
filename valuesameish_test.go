@@ -18,6 +18,10 @@ func TestBasicIntStringSame1(t *testing.T) {
 	assert := assert.New(t)
 	assert.True(Sameish(1, "1"))
 }
+func TestBasicIntStringSame2(t *testing.T) {
+	assert := assert.New(t)
+	assert.True(Sameish(1, "1.0"))
+}
 func TestBasicIntFloatSame(t *testing.T) {
 	assert := assert.New(t)
 	assert.True(Sameish(1, 1.0))
