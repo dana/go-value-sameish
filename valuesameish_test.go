@@ -26,6 +26,22 @@ func TestBasicIntFloatSame(t *testing.T) {
 	assert := assert.New(t)
 	assert.True(Sameish(1, 1.0))
 }
+func TestBasicStringStringSame(t *testing.T) {
+	assert := assert.New(t)
+	assert.True(Sameish("same", "same"))
+}
+func TestBasicStringStringDifferent(t *testing.T) {
+	assert := assert.New(t)
+	assert.False(Sameish("not", "same"))
+}
+func TestBasicStringIntSame1(t *testing.T) {
+	assert := assert.New(t)
+	assert.True(Sameish("1", 1))
+}
+func SkipTestBasicStringFloatSame(t *testing.T) {
+	assert := assert.New(t)
+	assert.True(Sameish("1", 1.0))
+}
 
 func TestFirstMapFail(t *testing.T) {
 	assert := assert.New(t)

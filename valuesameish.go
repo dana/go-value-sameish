@@ -43,7 +43,19 @@ func Sameish(first interface{}, second interface{}) bool {
 		default:
 			return false
 		}
-
+	case string:
+		switch second.(type) {
+		case string:
+			return first.(string) == second.(string)
+		case int:
+			return Sameish(second, first)
+		case float32:
+			return Sameish(second, first)
+		case float64:
+			return Sameish(second, first)
+		default:
+			return false
+		}
 	default:
 		return false
 	}
